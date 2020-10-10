@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <title>re-lmgtfy generator</title>
+        <style>
+        #googlehere {
+            width: 90%;
+            font-size: 120%;
+            border-width:inherit;
+			background-color: #75B6D5;
+            color: #ffffff;
+            border-color: #191f2e;
+            border-style: solid;
+        }
+        
+        #urlhere {
+            width: 90%;
+            font-size: 120%;
+            border-width:inherit;
+			text-decoration: underline;
+            background-color: #75B6D5;
+            color: #ffffff;
+            border-color: #191f2e;
+            border-style: solid;
+        }
+        
+        html body {
+            background: #191f2e;
+        }
+        
+        html body center {
+            background-color: #2E4377;
+			font-size: 100%;
+            line-height: 125%;
+            border-style: solid;
+			border-width:inherit;
+            padding-bottom: 1%;
+            padding-top: 1%;
+            margin-right: 30%;
+            margin-left: 30%;
+        }
+        
+			#copymsg {
+				color: #ffffff;
+			}
+		
+			
+			#tut {
+            font-size: 150%;
+            color: #ffffff;
+            font-family:"IRAN Sans";
+        }
+        
+        #googlehere {
+            border-radius: 10px;
+        }
+        
+        #urlhere {
+            border-radius: 10px;
+        }
+        
+        html body center {
+            border-radius: 30px;
+        }
+        
+        center {
+            margin-top: 20%
+        }
+        </style>
+        <script>
+          function copyit() {
+            try {
+              var successful = document.execCommand('copy');
+              var msg = successful ? 'Link successfully copied to clipboard' : 'JavaScript copy not supported -- Please use Ctrl-C to copy the text.';
+              document.getElementById('copymsg').innerHTML = msg;
+            } catch (err) {
+              console.log('unable to copy using document.execCommand(copy)');
+            }
+          }
+        </script>
+    </head>
+    <body>
+        <center>
+            <div id="tut" dir="rtl">چه چیزی می خواهید برایتان در گوگل جستجو کنیم ؟</div>
+            <br>
+            <input type="text" id="googlehere">
+            <br>
+            <br>
+            <div id="tut" dir="rtl">لینک شما :</div>
+            <br>
+            <input type="text" id="urlhere" onClick="this.select();copyit();" readonly>
+            <script>
+                document.getElementById("googlehere").onkeyup = function() {
+                   if(this.value.length != 0) {
+                       document.getElementById("urlhere").value = "http://re-lmgtfy.com/go.html?q=" + encodeURIComponent(this.value);
+                   } else {
+                       document.getElementById("urlhere").value = "";
+                   }
+                   //document.getElementById("urlhere").value = this.value;  
+                }
+            </script>
+            <p><div id="copymsg" dir="rtl">
+روی لینک کلیک کنید تا آن را در کلیپ بورد خود کپی کنید</div></p>
+        </center>
+    </body>
+</html>
